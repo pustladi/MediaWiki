@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<ruleset name="MediaWiki">
+	<rule ref="vendor/mediawiki/mediawiki-codesniffer/MediaWiki">
+		<!-- Disable rules added in 0.8.0 that don't pass yet -->
+		<exclude name="MediaWiki.Commenting.FunctionComment.ExtraParamComment" />
+		<exclude name="MediaWiki.Commenting.FunctionComment.MissingParamComment" />
+		<exclude name="MediaWiki.Commenting.FunctionComment.MissingParamName" />
+		<exclude name="MediaWiki.Commenting.FunctionComment.MissingParamTag" />
+		<exclude name="MediaWiki.Commenting.FunctionComment.MissingReturn" />
+		<exclude name="MediaWiki.Commenting.FunctionComment.Missing.Protected" />
+		<exclude name="MediaWiki.Commenting.FunctionComment.Missing.Public" />
+		<exclude name="MediaWiki.Commenting.FunctionComment.ParamNameNoMatch" />
+		<exclude name="MediaWiki.Commenting.FunctionComment.SpacingAfter" />
+		<exclude name="MediaWiki.Commenting.FunctionComment.SpacingAfterParamName" />
+		<exclude name="MediaWiki.Commenting.FunctionComment.SpacingAfterParamType" />
+		<exclude name="MediaWiki.Commenting.IllegalSingleLineComment.IllegalSingleLineCommentStart" />
+		<exclude name="MediaWiki.Commenting.IllegalSingleLineComment.IllegalSingleLineCommentEnd" />
+		<exclude name="MediaWiki.ControlStructures.AssignmentInControlStructures.AssignmentInControlStructures" />
+		<exclude name="MediaWiki.ExtraCharacters.ParenthesesAroundKeyword.ParenthesesAroundKeywords" />
+		<exclude name="MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName" />
+		<exclude name="MediaWiki.WhiteSpace.DisallowEmptyLineFunctions.NoEmptyLine" />
+		<exclude name="MediaWiki.WhiteSpace.SpaceBeforeControlStructureBrace.EmptyLines" />
+		<exclude name="MediaWiki.WhiteSpace.SpaceBeforeClassBrace.NoSpaceBeforeBrace" />
+		<exclude name="MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment" />
+		<exclude name="MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.SingleSpaceBeforeSingleLineComment" />
+		<exclude name="MediaWiki.Usage.DbrQueryUsage.DbrQueryFound" />
+		<exclude name="MediaWiki.Usage.ExtendClassUsage.FunctionVarUsage" />
+		<exclude name="MediaWiki.Usage.SuperGlobalsUsage.SuperGlobals" />
+	</rule>
+	<rule ref="MediaWiki.NamingConventions.PrefixedGlobalFunctions">
+		<properties>
+			<property name="ignoreList" type="array" value="bfNormalizeTitleStrReplace,bfNormalizeTitleStrTr,cdbShowHelp,codepointToUtf8,compare_point,cssfilter,escapeSingleString,findAuxFile,findFiles,getEscapedProfileUrl,getFileCommentFromSourceWiki,getFileUserFromSourceWiki,hexSequenceToUtf8,mccGetHelp,mccShowUsage,mimeTypeMatch,moveToExternal,NothingFunction,NothingFunctionData,resolveStub,resolveStubs,showUsage,splitFilename,utf8ToCodepoint,utf8ToHexSequence" />
+		</properties>
+	</rule>
+	<rule ref="MediaWiki.NamingConventions.ValidGlobalName">
+		<properties>
+			<property name="ignoreList" type="array" value="$IP,$messageMemc,$parserMemc" />
+		</properties>
+	</rule>
+	<file>.</file>
+	<arg name="encoding" value="utf8"/>
+	<arg name="extensions" value="php,php5,inc,sample"/>
+	<rule ref="Generic.Files.LineLength">
+		<exclude-pattern>*/languages/messages/Messages*.php</exclude-pattern>
+	</rule>
+	<rule ref="PSR2.Methods.MethodDeclaration.Underscore">
+		<exclude-pattern>*/includes/StubObject.php</exclude-pattern>
+	</rule>
+	<rule ref="Generic.ControlStructures.InlineControlStructure.NotAllowed">
+		<severity>0</severity>
+	</rule>
+	<rule ref="Generic.Formatting.NoSpaceAfterCast.SpaceFound">
+		<severity>0</severity>
+	</rule>
+	<exclude-pattern>node_modules/</exclude-pattern>
+	<exclude-pattern>vendor/</exclude-pattern>
+	<exclude-pattern type="relative">^extensions/</exclude-pattern>
+	<exclude-pattern type="relative">^skins/</exclude-pattern>
+	<exclude-pattern>.git</exclude-pattern>
+	<exclude-pattern>AdminSettings.php</exclude-pattern>
+	<exclude-pattern>LocalSettings.php</exclude-pattern>
+	<exclude-pattern>StartProfiler.php</exclude-pattern>
+</ruleset>
